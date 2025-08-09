@@ -54,7 +54,7 @@ export default function ContactSection() {
               <span className="font-medium">Phone</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Placeholder — please provide your phone number.
+              07947422393
             </p>
           </div>
           <div className="rounded-lg border p-4">
