@@ -8,14 +8,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b">
       <div className="container mx-auto flex items-center justify-between py-3">
-        <Link to="/" className="font-semibold text-lg">
+        <Link to="/design/elevated" className="font-semibold text-lg">
           <span className="text-primary">Dr.</span> Amee Shah
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <a href="/#about" className={navLink}>About</a>
-          <a href="/#services" className={navLink}>Services</a>
-          <a href="/#testimonials" className={navLink}>Testimonials</a>
-          <a href="/#contact" className={navLink}>Contact</a>
+          <Link to="/design/elevated#about" className={navLink}>About</Link>
+          <Link to="/design/elevated#services" className={navLink}>Services</Link>
+          <Link to="/design/elevated#testimonials" className={navLink}>Testimonials</Link>
+          <Link to="/design/elevated#contact" className={navLink}>Contact</Link>
         </nav>
         <div className="flex items-center gap-3">
           <a
@@ -36,19 +36,9 @@ export default function Header() {
           >
             <Instagram className="w-5 h-5" />
           </a>
-          <Link to="/#contact">
+          <Link to="/design/elevated#contact">
             <Button size="sm" className="hidden sm:inline-flex">Book Consultation</Button>
           </Link>
-        </div>
-      </div>
-      <div className="bg-secondary/60">
-        <div className="container mx-auto flex items-center gap-3 py-2 text-xs md:text-sm">
-          <span className="text-muted-foreground">Design variations:</span>
-          <Link to="/" className="text-primary hover:underline">Serene</Link>
-          <span className="text-muted-foreground">/</span>
-          <Link to="/design/minimal" className="text-primary hover:underline">Minimal</Link>
-          <span className="text-muted-foreground">/</span>
-          <Link to="/design/elevated" className="text-primary hover:underline">Elevated</Link>
         </div>
       </div>
     </header>
