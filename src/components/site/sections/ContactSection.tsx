@@ -10,12 +10,19 @@ export default function ContactSection() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "");
+    const email = String(data.get("email") || "");
+    const message = String(data.get("message") || "");
+    const subject = `New enquiry from ${name || "Website"}`;
+    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+    window.open(`mailto:Ameeshah88@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`, "_blank");
     toast({
-      title: "Message sent",
-      description:
-        "Thanks for reaching out! We’ll finalize delivery once address/phone details are confirmed.",
+      title: "Message ready to send",
+      description: "Your email client has opened with the message details.",
     });
-    (e.currentTarget as HTMLFormElement).reset();
+    form.reset();
   };
 
   return (
@@ -25,15 +32,15 @@ export default function ContactSection() {
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label className="block text-sm mb-1">Name</label>
-            <Input placeholder="Your name" required />
+            <Input name="name" placeholder="Your name" required />
           </div>
           <div>
             <label className="block text-sm mb-1">Email</label>
-            <Input type="email" placeholder="you@example.com" required />
+            <Input name="email" type="email" placeholder="you@example.com" required />
           </div>
           <div>
             <label className="block text-sm mb-1">Message</label>
-            <Textarea placeholder="How can we help?" rows={5} required />
+            <Textarea name="message" placeholder="How can we help?" rows={5} required />
           </div>
           <Button type="submit">Send Message</Button>
         </form>
@@ -56,6 +63,17 @@ export default function ContactSection() {
             <p className="text-sm text-muted-foreground">
               07947422393
             </p>
+          </div>
+          <div className="rounded-lg border p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="font-medium">Email</span>
+            </div>
+            <a
+              href="mailto:Ameeshah88@gmail.com"
+              className="text-primary hover:underline text-sm"
+            >
+              Ameeshah88@gmail.com
+            </a>
           </div>
           <div className="rounded-lg border p-4">
             <div className="flex items-center gap-3">
