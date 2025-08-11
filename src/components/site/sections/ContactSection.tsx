@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Linkedin, Instagram, MapPin, Phone } from "lucide-react";
 import React from "react";
 import { Reveal } from "@/hooks/use-reveal";
+import heroBg from "@/assets/hero-elevated-bg.jpg";
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -28,7 +29,17 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative container mx-auto py-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-90 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 bg-fixed bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${heroBg})` }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-primary/15 via-background/70 to-background [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)]"
+          aria-hidden
+        />
+      </div>
       <Reveal>
         <h2 className="text-3xl font-semibold mb-6">Contact</h2>
       </Reveal>
