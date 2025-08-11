@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Instagram, Linkedin, Plus } from "lucide-react";
+import { Instagram, Linkedin, Plus, Heart } from "lucide-react";
 
 const navLink = "text-sm text-foreground/80 hover:text-foreground transition-colors";
 
 export default function Header() {
-  const [rotation, setRotation] = useState(0);
-  const rotationRef = useRef(0);
+  const [flipped, setFlipped] = useState(false);
+  const accRef = useRef(0);
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -16,8 +16,11 @@ export default function Header() {
       const delta = y - lastY;
       lastY = y;
       if (delta === 0) return;
-      rotationRef.current += delta > 0 ? 20 : -20;
-      setRotation(rotationRef.current);
+      accRef.current += delta;
+      if (Math.abs(accRef.current) > 80) {
+        setFlipped((f) => !f);
+        accRef.current = 0;
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -37,10 +40,21 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <span aria-hidden="true" className="text-primary">
-            <Plus
-              className="w-5 h-5 transition-transform duration-200"
-              style={{ transform: `rotate(${rotation}deg)` }}
-            />
+            <span className="relative block w-5 h-5 [perspective:600px]">
+              <span
+                className={
+                  "absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] " +
+                  (flipped ? "[transform:rotateY(180deg)]" : "")
+                }
+              >
+                <span className="[backface-visibility:hidden] flex items-center justify-center">
+                  <Plus className="w-5 h-5 drop-shadow-sm" strokeWidth={3} />
+                </span>
+                <span className="[backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center">
+                  <Heart className="w-5 h-5 drop-shadow-sm" strokeWidth={3} />
+                </span>
+              </span>
+            </span>
           </span>
           <a
             href="https://www.linkedin.com/in/dr-amee-shah-7bb66940/"
