@@ -27,7 +27,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="container mx-auto py-16">
+    <section id="contact" className="relative container mx-auto py-16">
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-80 [mask-image:radial-gradient(60%_60%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.08),transparent_60%)]"></div>
       <Reveal>
         <h2 className="text-3xl font-semibold mb-6">Contact</h2>
       </Reveal>
@@ -57,9 +58,10 @@ export default function ContactSection() {
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="font-medium">Clinic Address</span>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Placeholder — please provide your clinic address.
-              </p>
+              <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                <li>Medansh Multispeciality Hospital (Ground Floor, Walji Ladha Road)</li>
+                <li>Hira Mongi Navneet Hospital (Walji Ladha Road)</li>
+              </ul>
             </div>
           </Reveal>
           <Reveal delay={100}>

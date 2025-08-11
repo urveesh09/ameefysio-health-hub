@@ -8,12 +8,13 @@ const services = [
   { title: "Post-operative Care", desc: "Early mobilization, lung expansion techniques, and recovery planning after surgery.", icon: Stethoscope },
   { title: "Chronic Condition Management", desc: "Long-term support for COPD, asthma, and cardiovascular conditions.", icon: Activity },
   { title: "Exercise Prescription", desc: "Evidence-based, goal-oriented exercise plans tailored to your needs.", icon: Dumbbell },
-  { title: "Home-based Physiotherapy", desc: "Convenient care plans and supervised sessions at home or via tele-rehab.", icon: Home },
+  { title: "Home and Tele-based Physiotherapy", desc: "Convenient care plans and supervised sessions at home or via tele-rehab.", icon: Home },
 ];
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="container mx-auto py-16">
+    <section id="services" className="relative container mx-auto py-16">
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-80 [mask-image:radial-gradient(60%_60%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.08),transparent_60%)]"></div>
       <Reveal>
         <header className="mb-6">
           <span className="inline-block mb-3 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs tracking-wide">What I Offer</span>

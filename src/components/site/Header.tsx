@@ -1,10 +1,28 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Plus } from "lucide-react";
 
 const navLink = "text-sm text-foreground/80 hover:text-foreground transition-colors";
 
 export default function Header() {
+  const [rotation, setRotation] = useState(0);
+  const rotationRef = useRef(0);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+      lastY = y;
+      if (delta === 0) return;
+      rotationRef.current += delta > 0 ? 20 : -20;
+      setRotation(rotationRef.current);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b">
       <div className="container mx-auto flex items-center justify-between py-3">
@@ -18,6 +36,12 @@ export default function Header() {
           <Link to="/design/elevated#contact" className={navLink}>Contact</Link>
         </nav>
         <div className="flex items-center gap-3">
+          <span aria-hidden="true" className="text-primary">
+            <Plus
+              className="w-5 h-5 transition-transform duration-200"
+              style={{ transform: `rotate(${rotation}deg)` }}
+            />
+          </span>
           <a
             href="https://www.linkedin.com/in/dr-amee-shah-7bb66940/"
             target="_blank"

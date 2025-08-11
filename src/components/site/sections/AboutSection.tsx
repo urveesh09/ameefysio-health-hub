@@ -4,7 +4,8 @@ import { Reveal } from "@/hooks/use-reveal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="container mx-auto py-16">
+    <section id="about" className="relative container mx-auto py-16">
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-80 [mask-image:radial-gradient(60%_60%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
       <article className="grid md:grid-cols-2 gap-10 items-center rounded-2xl border border-primary/20 bg-card/80 backdrop-blur-md p-6 md:p-8 shadow-lg ring-1 ring-primary/10">
         <Reveal className="order-2 md:order-1">
           <span className="inline-block mb-3 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs tracking-wide">
