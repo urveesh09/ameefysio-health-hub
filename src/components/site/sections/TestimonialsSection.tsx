@@ -23,7 +23,7 @@ const testimonials = [
 export default function TestimonialsSection() {
   return (
     <section id="testimonials" className="relative container mx-auto py-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-80 [mask-image:radial-gradient(60%_60%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.08),transparent_60%)]"></div>
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-90 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
       <Reveal>
         <h2 className="text-3xl font-semibold mb-2">Patient Testimonials</h2>
       </Reveal>
