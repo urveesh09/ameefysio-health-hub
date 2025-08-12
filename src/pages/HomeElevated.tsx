@@ -11,7 +11,7 @@ const HomeElevated = () => (
       title="Physiotherapy Care | Elevated Design"
       description="Explore an elevated, card-based layout for Dr. Amee Shah’s physiotherapy website."
     />
-    <main className="relative bg-gradient-to-b from-secondary/30 via-background to-background">
+    <main className="relative">
       <HeroElevated />
       <AboutSection />
       <ServicesSection />

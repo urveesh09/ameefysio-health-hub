@@ -101,5 +101,12 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(75% 75% at 50% -10%, hsl(var(--primary) / 0.06), transparent 60%),
+      radial-gradient(65% 65% at 50% 120%, hsl(var(--primary) / 0.04), transparent 60%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-color: hsl(var(--background));
   }
 }
