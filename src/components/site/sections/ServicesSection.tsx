@@ -14,9 +14,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative container mx-auto py-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-90 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
-      <Reveal>
+    <section id="services" className="relative py-16">
+      <div className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
+      <div className="container mx-auto">
+        <Reveal>
         <header className="mb-6">
           <span className="inline-block mb-3 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs tracking-wide">What I Offer</span>
           <h2 className="text-3xl font-semibold">Services</h2>
@@ -41,6 +42,7 @@ export default function ServicesSection() {
             </Card>
           </Reveal>
         ))}
+      </div>
       </div>
     </section>
   );
