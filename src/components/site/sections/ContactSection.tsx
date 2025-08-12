@@ -30,8 +30,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
+    <section id="contact" className="section-ambient relative overflow-hidden py-16">
+      <div className="grid-lines" aria-hidden />
       <div className="container mx-auto">
         <Reveal>
           <h2 className="text-3xl font-semibold mb-6">Contact</h2>
@@ -62,7 +62,7 @@ export default function ContactSection() {
 
           <div className="space-y-4">
             <Reveal delay={60}>
-              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4 transform-gpu hover:-translate-y-0.5">
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="font-medium">Clinic Address</span>
@@ -74,7 +74,7 @@ export default function ContactSection() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4 transform-gpu hover:-translate-y-0.5">
                 <div className="flex items-center gap-2 mb-2">
                   <Phone className="w-4 h-4 text-primary" />
                   <span className="font-medium">Phone</span>
@@ -83,7 +83,7 @@ export default function ContactSection() {
               </div>
             </Reveal>
             <Reveal delay={140}>
-              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4 transform-gpu hover:-translate-y-0.5">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-medium">Email</span>
                 </div>
@@ -93,7 +93,7 @@ export default function ContactSection() {
               </div>
             </Reveal>
             <Reveal delay={180}>
-              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4 transform-gpu hover:-translate-y-0.5">
                 <div className="flex items-center gap-3">
                   <a
                     href="https://www.linkedin.com/in/dr-amee-shah-7bb66940/"

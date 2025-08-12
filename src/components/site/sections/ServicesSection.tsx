@@ -14,8 +14,8 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
+    <section id="services" className="section-ambient relative overflow-hidden py-16">
+      <div className="grid-lines" aria-hidden />
       <div className="container mx-auto">
         <Reveal>
         <header className="mb-6">
@@ -29,17 +29,19 @@ export default function ServicesSection() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map(({ title, desc, icon: Icon }, i) => (
           <Reveal key={title} delay={i * 60}>
-            <Card className="h-full border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur hover:shadow-lg transition-all">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex p-2 rounded-md bg-secondary">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </span>
-                  <CardTitle className="text-lg">{title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="text-muted-foreground">{desc}</CardContent>
-            </Card>
+            <div className="relative p-[1px] rounded-xl bg-gradient-to-b from-primary/30 to-transparent">
+              <Card className="h-full transform-gpu hover:-translate-y-0.5 border-primary/10 ring-1 ring-primary/10 bg-card/90 backdrop-blur-sm transition-all">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex p-2 rounded-md bg-secondary">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </span>
+                    <CardTitle className="text-lg">{title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">{desc}</CardContent>
+              </Card>
+            </div>
           </Reveal>
         ))}
       </div>

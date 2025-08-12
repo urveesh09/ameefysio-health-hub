@@ -3,8 +3,8 @@ import { Reveal } from "@/hooks/use-reveal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-16">
-      <div className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
+    <section id="about" className="section-ambient relative overflow-hidden py-16">
+      <div className="grid-lines" aria-hidden />
       <div className="container mx-auto">
         <article className="grid md:grid-cols-2 gap-10 items-center rounded-2xl border border-primary/20 bg-card/80 backdrop-blur-md p-6 md:p-8 shadow-lg ring-1 ring-primary/10">
         <Reveal className="order-2 md:order-1">
@@ -39,13 +39,21 @@ export default function AboutSection() {
             </a>
           </div>
         </Reveal>
-        <Reveal className="order-1 md:order-2 rounded-lg overflow-hidden" delay={100}>
-          <img
-            src="/lovable-uploads/7db9ab56-b8c3-4b47-8187-028f0a8bf5fb.png"
-            alt="Dr. Amee Shah, Physiotherapist"
-            className="w-full h-auto object-cover bg-muted"
-            loading="lazy"
-          />
+        <Reveal className="order-1 md:order-2" delay={100}>
+          <div className="relative">
+            <div
+              className="absolute -inset-6 rounded-3xl bg-gradient-to-b from-primary/25 to-transparent opacity-50 blur-2xl"
+              aria-hidden
+            />
+            <div className="relative rounded-3xl p-[2px] bg-gradient-to-b from-primary/40 to-transparent">
+              <img
+                src="/lovable-uploads/940d7793-57db-41db-ba70-71a86edea0d8.png"
+                alt="Dr. Amee Shah, Physiotherapist"
+                className="w-full h-auto object-contain bg-transparent rounded-3xl animate-float-slow"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </Reveal>
       </article>
       </div>
