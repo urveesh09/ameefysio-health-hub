@@ -6,7 +6,6 @@ import { Linkedin, Instagram, MapPin, Phone } from "lucide-react";
 import React from "react";
 import { Reveal } from "@/hooks/use-reveal";
 
-
 export default function ContactSection() {
   const { toast } = useToast();
 
@@ -19,7 +18,10 @@ export default function ContactSection() {
     const message = String(data.get("message") || "");
     const subject = `New enquiry from ${name || "Website"}`;
     const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-    window.open(`mailto:Ameeshah88@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`, "_blank");
+    window.open(
+      `mailto:Ameeshah88@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`,
+      "_blank"
+    );
     toast({
       title: "Message ready to send",
       description: "Your email client has opened with the message details.",
@@ -32,83 +34,89 @@ export default function ContactSection() {
       <div className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_70%_at_50%_0%,black,transparent)] bg-[radial-gradient(75%_75%_at_50%_-10%,hsl(var(--primary)/0.14),transparent_60%),radial-gradient(65%_65%_at_50%_120%,hsl(var(--primary)/0.10),transparent_60%)]"></div>
       <div className="container mx-auto">
         <Reveal>
-        <h2 className="text-3xl font-semibold mb-6">Contact</h2>
-      </Reveal>
-      <div className="grid md:grid-cols-2 gap-8">
-        <Reveal>
-          <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-primary/20 bg-card/80 backdrop-blur p-6 md:p-8 shadow-lg ring-1 ring-primary/10">
-            <div>
-              <label className="block text-sm mb-1">Name</label>
-              <Input name="name" placeholder="Your name" required />
-            </div>
-            <div>
-              <label className="block text-sm mb-1">Email</label>
-              <Input name="email" type="email" placeholder="you@example.com" required />
-            </div>
-            <div>
-              <label className="block text-sm mb-1">Message</label>
-              <Textarea name="message" placeholder="How can we help?" rows={5} required />
-            </div>
-            <Button type="submit" className="shadow-md hover:shadow-lg ring-1 ring-primary/20">Send Message</Button>
-          </form>
+          <h2 className="text-3xl font-semibold mb-6">Contact</h2>
         </Reveal>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Reveal>
+            <form
+              onSubmit={onSubmit}
+              className="space-y-4 rounded-2xl border border-primary/20 bg-card/80 backdrop-blur p-6 md:p-8 shadow-lg ring-1 ring-primary/10"
+            >
+              <div>
+                <label className="block text-sm mb-1">Name</label>
+                <Input name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label className="block text-sm mb-1">Email</label>
+                <Input name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div>
+                <label className="block text-sm mb-1">Message</label>
+                <Textarea name="message" placeholder="How can we help?" rows={5} required />
+              </div>
+              <Button type="submit" className="shadow-md hover:shadow-lg ring-1 ring-primary/20">
+                Send Message
+              </Button>
+            </form>
+          </Reveal>
 
-        <div className="space-y-4">
-          <Reveal delay={60}>
-            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span className="font-medium">Clinic Address</span>
+          <div className="space-y-4">
+            <Reveal delay={60}>
+              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="font-medium">Clinic Address</span>
+                </div>
+                <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                  <li>Medansh Multispeciality Hospital (Ground Floor, Walji Ladha Road)</li>
+                  <li>Hira Mongi Navneet Hospital (Walji Ladha Road)</li>
+                </ul>
               </div>
-              <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                <li>Medansh Multispeciality Hospital (Ground Floor, Walji Ladha Road)</li>
-                <li>Hira Mongi Navneet Hospital (Walji Ladha Road)</li>
-              </ul>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Phone className="w-4 h-4 text-primary" />
-                <span className="font-medium">Phone</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Phone className="w-4 h-4 text-primary" />
+                  <span className="font-medium">Phone</span>
+                </div>
+                <p className="text-sm text-muted-foreground">07947422393</p>
               </div>
-              <p className="text-sm text-muted-foreground">07947422393</p>
-            </div>
-          </Reveal>
-          <Reveal delay={140}>
-            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-medium">Email</span>
-              </div>
-              <a href="mailto:Ameeshah88@gmail.com" className="text-primary hover:underline text-sm">
-                Ameeshah88@gmail.com
-              </a>
-            </div>
-          </Reveal>
-          <Reveal delay={180}>
-            <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.linkedin.com/in/dr-amee-shah-7bb66940/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary hover:underline"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
-                <a
-                  href="https://www.instagram.com/dr.amee_physio.at.home/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary hover:underline"
-                >
-                  <Instagram className="w-4 h-4" />
-                  Instagram
+            </Reveal>
+            <Reveal delay={140}>
+              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-medium">Email</span>
+                </div>
+                <a href="mailto:Ameeshah88@gmail.com" className="text-primary hover:underline text-sm">
+                  Ameeshah88@gmail.com
                 </a>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={180}>
+              <div className="rounded-lg border border-primary/20 ring-1 ring-primary/10 bg-card/80 backdrop-blur p-4">
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/dr-amee-shah-7bb66940/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary hover:underline"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://www.instagram.com/dr.amee_physio.at.home/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary hover:underline"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
