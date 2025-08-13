@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,47 +40,32 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -106,55 +92,167 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(75% 75% at 50% -10%, hsl(var(--primary) / 0.06), transparent 60%),
-      radial-gradient(65% 65% at 50% 120%, hsl(var(--primary) / 0.04), transparent 60%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    background-color: hsl(var(--background));
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(152 30% 98%) 100%);
   }
 }
 
 @layer utilities {
-  .app-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -20;
-    pointer-events: none;
-    background:
-      radial-gradient(60% 40% at 20% -10%, hsl(var(--primary) / 0.22), transparent 65%),
-      radial-gradient(55% 45% at 80% 110%, hsl(var(--accent) / 0.18), transparent 60%),
-      conic-gradient(from 180deg at 50% 50%, hsl(var(--primary) / 0.08), transparent 25%, hsl(var(--primary) / 0.06), transparent 55%, hsl(var(--accent) / 0.06), transparent 85%);
-    filter: saturate(1.05);
-  }
-  .app-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-    opacity: 0.35;
-  }
-
-  .section-ambient {
+  /* About Section - Flowing waves */
+  .about-bg {
+    background: 
+      radial-gradient(circle at 20% 20%, hsl(152 70% 85% / 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(152 60% 90% / 0.4) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(152 40% 96%) 0%, hsl(152 30% 98%) 50%, hsl(152 35% 94%) 100%);
     position: relative;
   }
-  .section-ambient::before {
-    content: none;
+  
+  .about-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 60px,
+        hsl(152 60% 85% / 0.1) 60px,
+        hsl(152 60% 85% / 0.1) 62px
+      );
+    animation: drift 20s linear infinite;
   }
-  .grid-lines {
-    display: none;
+
+  /* Services Section - Geometric patterns */
+  .services-bg {
+    background: 
+      radial-gradient(circle at 0% 0%, hsl(152 80% 88% / 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, hsl(42 80% 88% / 0.3) 0%, transparent 50%),
+      linear-gradient(45deg, hsl(152 25% 97%) 0%, hsl(152 40% 94%) 50%, hsl(152 30% 96%) 100%);
+    position: relative;
   }
+  
+  .services-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(152 70% 80% / 0.15) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(42 70% 80% / 0.15) 1px, transparent 1px);
+    background-size: 40px 40px, 60px 60px;
+    animation: float 15s ease-in-out infinite;
+  }
+
+  /* Testimonials Section - Organic bubbles */
+  .testimonials-bg {
+    background: 
+      radial-gradient(ellipse at 30% 30%, hsl(152 90% 85% / 0.35) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 70%, hsl(152 70% 90% / 0.4) 0%, transparent 60%),
+      linear-gradient(225deg, hsl(152 35% 95%) 0%, hsl(152 45% 92%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .testimonials-bg::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: 
+      radial-gradient(circle at 20% 40%, hsl(152 80% 80% / 0.2) 8px, transparent 8px),
+      radial-gradient(circle at 80% 60%, hsl(152 70% 85% / 0.15) 12px, transparent 12px),
+      radial-gradient(circle at 40% 80%, hsl(42 80% 85% / 0.1) 6px, transparent 6px);
+    background-size: 120px 120px, 180px 180px, 90px 90px;
+    animation: bubble-drift 25s linear infinite;
+  }
+
+  /* Contact Section - Energy waves */
+  .contact-bg {
+    background: 
+      linear-gradient(135deg, hsl(152 50% 92%) 0%, hsl(152 40% 95%) 25%, hsl(152 60% 88%) 50%, hsl(152 35% 96%) 75%, hsl(152 45% 93%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        hsl(152 70% 85% / 0.1) 80px,
+        hsl(152 70% 85% / 0.1) 82px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 100px,
+        hsl(152 60% 90% / 0.08) 100px,
+        hsl(152 60% 90% / 0.08) 102px
+      );
+    animation: wave-flow 18s ease-in-out infinite;
+  }
+
   .animate-float-slow {
     animation: float 8s ease-in-out infinite;
+  }
+
+  /* Premium card effects */
+  .premium-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(152 40% 85% / 0.6);
+    box-shadow: 
+      0 8px 32px hsl(152 60% 45% / 0.1),
+      0 4px 16px hsl(152 50% 50% / 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 16px 48px hsl(152 60% 45% / 0.15),
+      0 8px 24px hsl(152 50% 50% / 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-3px) translateX(2px); }
+  50% { transform: translateY(-6px) translateX(0); }
+  75% { transform: translateY(-3px) translateX(-2px); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+@keyframes bubble-drift {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+@keyframes wave-flow {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(10px) translateY(-5px); }
+  50% { transform: translateX(0) translateY(-10px); }
+  75% { transform: translateX(-10px) translateY(-5px); }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
 }

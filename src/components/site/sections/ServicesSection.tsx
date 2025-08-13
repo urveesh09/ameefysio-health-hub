@@ -1,7 +1,7 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Home, HeartPulse, Activity, Stethoscope, Wind, Dumbbell } from "lucide-react";
 import { Reveal } from "@/hooks/use-reveal";
-
 
 const services = [
   { title: "Cardiopulmonary Rehabilitation", desc: "Individualized exercise and breathing programs to improve endurance and heart–lung function.", icon: HeartPulse },
@@ -14,34 +14,39 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-ambient relative overflow-hidden py-16 scroll-mt-24 md:scroll-mt-28">
-      <div className="grid-lines" aria-hidden />
+    <section id="services" className="services-bg relative py-20 scroll-mt-24 md:scroll-mt-28">
       <div className="container mx-auto">
         <Reveal>
-        <header className="mb-6">
-          <span className="inline-block mb-3 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs tracking-wide">What I Offer</span>
-          <h2 className="text-3xl font-semibold">Services</h2>
-          <p className="text-sm text-muted-foreground mt-2">
+        <header className="mb-10 text-center">
+          <span className="inline-block mb-4 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 text-primary text-sm font-semibold tracking-wide border border-primary/20">
+            What I Offer
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
+            Specialized Services
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Evidence-based care across heart and lung rehabilitation — designed to help you breathe easier and move better.
           </p>
         </header>
       </Reveal>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map(({ title, desc, icon: Icon }, i) => (
-          <Reveal key={title} delay={i * 60}>
-            <div className="relative p-[1px] rounded-xl bg-gradient-to-b from-primary/30 to-transparent">
-              <Card className="h-full transform-gpu hover:-translate-y-0.5 border-primary/10 ring-1 ring-primary/10 bg-card/90 backdrop-blur-sm transition-all">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex p-2 rounded-md bg-secondary">
-                      <Icon className="w-5 h-5 text-primary" />
-                    </span>
-                    <CardTitle className="text-lg">{title}</CardTitle>
+          <Reveal key={title} delay={i * 80}>
+            <Card className="premium-card h-full group cursor-pointer">
+              <CardHeader className="pb-4">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 group-hover:from-primary/30 group-hover:to-accent/20 transition-all duration-300">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">{desc}</CardContent>
-              </Card>
-            </div>
+                  <CardTitle className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">
+                    {title}
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="text-muted-foreground leading-relaxed">
+                {desc}
+              </CardContent>
+            </Card>
           </Reveal>
         ))}
       </div>
