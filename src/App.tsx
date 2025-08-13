@@ -20,6 +20,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <div className="app-bg" aria-hidden />
           <Header />
           <Routes>
             <Route path="/" element={<Navigate to="/design/elevated" replace />} />

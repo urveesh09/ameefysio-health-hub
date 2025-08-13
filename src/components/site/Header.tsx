@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Instagram, Linkedin, Plus } from "lucide-react";
@@ -23,6 +23,24 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNav = (section: string) => (e: any) => {
+    e.preventDefault();
+    const path = "/design/elevated";
+    if (location.pathname !== path) {
+      navigate(`${path}#${section}`);
+      requestAnimationFrame(() => {
+        const el = document.getElementById(section);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    } else {
+      const el = document.getElementById(section);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b">
       <div className="container mx-auto flex items-center justify-between py-3">
@@ -30,10 +48,10 @@ export default function Header() {
           <span className="text-primary">Dr.</span> Amee Shah
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/design/elevated#about" className={navLink}>About</Link>
-          <Link to="/design/elevated#services" className={navLink}>Services</Link>
-          <Link to="/design/elevated#testimonials" className={navLink}>Testimonials</Link>
-          <Link to="/design/elevated#contact" className={navLink}>Contact</Link>
+          <Link to="#about" onClick={handleNav('about')} className={navLink}>About</Link>
+          <Link to="#services" onClick={handleNav('services')} className={navLink}>Services</Link>
+          <Link to="#testimonials" onClick={handleNav('testimonials')} className={navLink}>Testimonials</Link>
+          <Link to="#contact" onClick={handleNav('contact')} className={navLink}>Contact</Link>
         </nav>
         <div className="flex items-center gap-3">
           <span aria-hidden="true" className="text-primary">
@@ -63,7 +81,7 @@ export default function Header() {
           >
             <Instagram className="w-5 h-5" />
           </a>
-          <Link to="/design/elevated#contact">
+          <Link to="#contact" onClick={handleNav('contact')}>
             <Button size="sm" className="hidden sm:inline-flex">Book Consultation</Button>
           </Link>
         </div>

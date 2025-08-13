@@ -3,7 +3,7 @@ import { Reveal } from "@/hooks/use-reveal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="section-ambient relative overflow-hidden py-16">
+    <section id="about" className="section-ambient relative overflow-hidden py-16 scroll-mt-24 md:scroll-mt-28">
       <div className="grid-lines" aria-hidden />
       <div className="container mx-auto">
         <article className="grid md:grid-cols-2 gap-10 items-center rounded-2xl border border-primary/20 bg-card/80 backdrop-blur-md p-6 md:p-8 shadow-lg ring-1 ring-primary/10">

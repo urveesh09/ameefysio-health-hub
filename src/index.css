@@ -99,6 +99,11 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
   body {
     @apply bg-background text-foreground;
     background-image:
@@ -112,32 +117,36 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  .app-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -20;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 40% at 20% -10%, hsl(var(--primary) / 0.22), transparent 65%),
+      radial-gradient(55% 45% at 80% 110%, hsl(var(--accent) / 0.18), transparent 60%),
+      conic-gradient(from 180deg at 50% 50%, hsl(var(--primary) / 0.08), transparent 25%, hsl(var(--primary) / 0.06), transparent 55%, hsl(var(--accent) / 0.06), transparent 85%);
+    filter: saturate(1.05);
+  }
+  .app-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.35;
+  }
+
   .section-ambient {
     position: relative;
   }
   .section-ambient::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: -10;
-    -webkit-mask-image: radial-gradient(70% 70% at 50% 0%, black, transparent);
-    mask-image: radial-gradient(70% 70% at 50% 0%, black, transparent);
-    background:
-      radial-gradient(75% 75% at 50% -10%, hsl(var(--primary) / 0.14), transparent 60%),
-      radial-gradient(65% 65% at 50% 120%, hsl(var(--primary) / 0.10), transparent 60%);
+    content: none;
   }
   .grid-lines {
-    position: absolute;
-    inset: 0;
-    z-index: -10;
-    pointer-events: none;
-    background-image:
-      linear-gradient(to right, hsl(var(--primary) / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--primary) / 0.06) 1px, transparent 1px);
-    background-size: 24px 24px;
-    -webkit-mask-image: radial-gradient(70% 70% at 50% 0%, black, transparent);
-    mask-image: radial-gradient(70% 70% at 50% 0%, black, transparent);
+    display: none;
   }
   .animate-float-slow {
     animation: float 8s ease-in-out infinite;

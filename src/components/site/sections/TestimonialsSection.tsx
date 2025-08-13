@@ -22,7 +22,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="section-ambient relative py-16">
+    <section id="testimonials" className="section-ambient relative py-16 scroll-mt-24 md:scroll-mt-28">
       <div className="grid-lines" aria-hidden />
       <div className="container mx-auto">
         <Reveal>

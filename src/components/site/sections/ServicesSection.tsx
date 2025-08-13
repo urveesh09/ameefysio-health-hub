@@ -14,7 +14,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-ambient relative overflow-hidden py-16">
+    <section id="services" className="section-ambient relative overflow-hidden py-16 scroll-mt-24 md:scroll-mt-28">
       <div className="grid-lines" aria-hidden />
       <div className="container mx-auto">
         <Reveal>
