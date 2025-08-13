@@ -68,7 +68,7 @@ export default function ContactSection() {
                     className="premium-card border-primary/20 resize-none" 
                   />
                 </div>
-                <Button type="submit" className="w-full premium-card bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-lg">
+                <Button type="submit" variant="outline" className="w-full premium-card border-primary/30 text-primary hover:bg-primary/5">
                   <Mail className="w-4 h-4 mr-2" />
                   Send Message
                 </Button>

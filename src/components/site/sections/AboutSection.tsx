@@ -8,9 +8,6 @@ export default function AboutSection() {
       <div className="container mx-auto">
         <article className="grid md:grid-cols-2 gap-10 items-center premium-card rounded-3xl p-8 md:p-12">
         <Reveal className="order-2 md:order-1">
-          <span className="inline-block mb-3 px-4 py-2 rounded-full bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground text-sm font-medium tracking-wide shadow-sm">
-            About the Specialist
-          </span>
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             About Dr. Amee Shah
           </h2>
@@ -29,7 +26,7 @@ export default function AboutSection() {
           </div>
           <div className="flex flex-wrap gap-4">
             <a href="/amee.pdf" download className="group">
-              <Button className="premium-card border-primary/20 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-lg">
+              <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary/5">
                 Download Brochure
               </Button>
             </a>
@@ -50,7 +47,7 @@ export default function AboutSection() {
             <div className="absolute -inset-8 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 opacity-60 blur-2xl animate-pulse" />
             <div className="relative rounded-3xl overflow-hidden premium-card p-2">
               <img
-                src="/lovable-uploads/5fd2dd84-febe-4b6b-b1d2-2b0a84e7a28a.png"
+                src="/lovable-uploads/940d7793-57db-41db-ba70-71a86edea0d8.png"
                 alt="Dr. Amee Shah, Physiotherapist"
                 className="w-full h-auto object-contain bg-transparent rounded-2xl animate-float-slow"
                 loading="lazy"
