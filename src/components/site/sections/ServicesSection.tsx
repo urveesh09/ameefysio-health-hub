@@ -29,7 +29,7 @@ export default function ServicesSection() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map(({ title, desc, icon: Icon }, i) => (
           <Reveal key={title} delay={i * 80}>
-            <Card className="premium-card h-full group cursor-pointer transition-all hover:-translate-y-1 hover:shadow-lg">
+            <Card className="premium-card h-full group cursor-pointer transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 hover:scale-105">
               <CardHeader className="pb-4">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 group-hover:from-primary/30 group-hover:to-accent/20 transition-all duration-300">

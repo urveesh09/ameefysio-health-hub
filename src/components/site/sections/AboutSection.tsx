@@ -26,7 +26,7 @@ export default function AboutSection() {
           </div>
           <div className="flex flex-wrap gap-4">
             <a href="/amee.pdf" download className="group">
-              <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary/5">
+              <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary hover:text-white">
                 Download Brochure
               </Button>
             </a>
@@ -36,7 +36,7 @@ export default function AboutSection() {
               rel="noopener noreferrer"
               className="group"
             >
-              <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary/5">
+              <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary hover:text-white">
                 LinkedIn Profile
               </Button>
             </a>
