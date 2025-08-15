@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,9 +99,10 @@ All colors MUST be HSL.
   /* About Section - Flowing waves */
   .about-bg {
     background:
+      linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 10px),
       radial-gradient(circle at 20% 20%, hsl(152 70% 85% / 0.25) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, hsl(152 60% 90% / 0.3) 0%, transparent 50%),
-      linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(152 45% 96%) 40%, hsl(var(--background)) 100%);
+      radial-gradient(circle at 80% 80%, hsl(152 60% 90% / 0.3) 0%, transparent 50%);
+
     position: relative;
   }
   
@@ -116,9 +116,8 @@ All colors MUST be HSL.
         transparent,
         transparent 60px,
         hsl(152 60% 85% / 0.1) 60px,
-        hsl(152 60% 85% / 0.1) 62px
+        hsl(152 60% 85% / 0.1) 62px,
       );
-    animation: drift 20s linear infinite;
   }
 
   /* Services Section - Geometric patterns */
@@ -130,16 +129,6 @@ All colors MUST be HSL.
     position: relative;
   }
   
-  .services-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-      radial-gradient(circle at 25% 25%, hsl(152 70% 80% / 0.15) 2px, transparent 2px),
-      radial-gradient(circle at 75% 75%, hsl(42 70% 80% / 0.15) 1px, transparent 1px);
-    background-size: 40px 40px, 60px 60px;
-    animation: float 15s ease-in-out infinite;
-  }
 
   /* Testimonials Section - Organic bubbles */
   .testimonials-bg {
@@ -180,8 +169,8 @@ All colors MUST be HSL.
         90deg,
         transparent,
         transparent 80px,
-        hsl(152 70% 85% / 0.1) 80px,
-        hsl(152 70% 85% / 0.1) 82px
+        /* hsl(152 70% 85% / 0.1) 80px, */
+        /* hsl(152 70% 85% / 0.1) 82px */
       ),
       repeating-linear-gradient(
         0deg,
