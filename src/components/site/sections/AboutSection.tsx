@@ -25,9 +25,12 @@ export default function AboutSection() {
             </ul>
           </div>
           <div className="flex flex-wrap gap-4">
-            <a href="/amee.pdf" download className="group">
+            <a
+              href="mailto:contact@example.com?subject=Request for Dr. Amee Shah's Brochure&body=Hello, I would like to request Dr. Amee Shah's brochure. Please send it to me."
+              className="group"
+            >
               <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary hover:text-white">
-                Download Brochure
+                Request Brochure
               </Button>
             </a>
             <a
