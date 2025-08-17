@@ -26,14 +26,6 @@ export default function AboutSection() {
           </div>
           <div className="flex flex-wrap gap-4">
             <a
-              href="mailto:contact@example.com?subject=Request for Dr. Amee Shah's Brochure&body=Hello, I would like to request Dr. Amee Shah's brochure. Please send it to me."
-              className="group"
-            >
-              <Button variant="outline" className="premium-card border-primary/30 text-primary hover:bg-primary hover:text-white">
-                Request Brochure
-              </Button>
-            </a>
-            <a
               href="https://www.linkedin.com/in/dr-amee-shah-7bb66940/"
               target="_blank"
               rel="noopener noreferrer"
